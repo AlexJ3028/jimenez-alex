@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resolución de problemas lógicos</title>
+
+</head>
+<body>
+   <div style="text-align: center; margin-top: 30vh">
+    <div>
+        <h1>Problemas de Lógica Matemática</h1>
+        <input type="text" id="input1" placeholder="Introduce un número">
+        <button onclick="problema1()">Problema 1: Palíndromo de doble base</button>        
+    </div>
+    <div>
+        <input type="text" id="input2" placeholder="Introduce una cadena">
+        <button onclick="problema2()">Problema 2: Cantidad de caracteres</button>
+    </div>
+    <div>
+        <input type="number" id="input3" placeholder="Introduce un año">
+        <button onclick="problema3()">Problema 3: Año bisiesto</button>
+    </div>
+
+    <div>
+        <input type="number" id="input4" placeholder="Introduce un número (menor de 1000000)">
+        <button onclick="problema4()">Problema 4: Sumatoria de números primos</button>
+    </div>
+
+   </div>
+
+    <script>
+        // # Problema 1: Palíndromo de doble base (base 10 y base 2)
+        function problema1() {
+            let t = document.getElementById("input1").value;
+            let base10Palindromo = esPalindromo(t);
+            let base2Palindromo = esPalindromo(parseInt(t).toString(2));
+
+            if (base10Palindromo && base2Palindromo) {
+                alert(t + " es un palíndromo en base 10 y base 2.");
+                console.log(t + " es un palíndromo en base 10 y base 2.");
+            } else {
+                alert(t + " es un palíndromo en base 10 y base 2.");
+                console.log(t + " no es un palíndromo de doble base.");
+            }
+        }
+
+        function esPalindromo(str) {
+            return str === str.split('').reverse().join('');
+        }
+
+        // # Problema 2: Cantidad de caracteres
+        function problema2() {
+            let t = document.getElementById("input2").value;
+            let contador = {};
+
+            for (let char of t) {
+                if (contador[char]) {
+                    contador[char]++;
+                } else {
+                    contador[char] = 1;
+                }
+            }
+            console.log("Cantidad de caracteres en la cadena:");
+            for (let char in contador) {
+                console.log(char + ": " + contador[char]);
+            }
+        }
+
+        // # Problema 3: Año bisiesto
+        function problema3() {
+            let a = parseInt(document.getElementById("input3").value);
+
+            if ((a % 4 === 0 && a % 100 !== 0) || (a % 400 === 0)) {
+                console.log(a + " es un año bisiesto.");
+            } else {
+                console.log(a + " no es un año bisiesto.");
+            }
+        }
+
+        // # Problema 4: Sumatoria de números primos
+        function problema4() {
+            let n = parseInt(document.getElementById("input4").value);
+            let suma = 0;
+
+            function esPrimo(num) {
+                if (num <= 1) return false;
+                for (let i = 2; i <= Math.sqrt(num); i++) {
+                    if (num % i === 0) return false;
+                }
+                return true;
+            }
+
+            for (let i = 1; i <= n; i++) {
+                if (esPrimo(i)) {
+                    suma += i;
+                }
+            }
+
+            console.log("Sumatoria de números primos menores o iguales a " + n + " es: " + suma);
+        }
+    </script>
+
+</body>
+</html>
