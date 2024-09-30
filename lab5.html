@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Dinámico con Eventos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .response {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .response span {
+            font-weight: bold;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+        }
+
+        select, input {
+            padding: 8px;
+            margin-top: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Formulario Dinámico con Cambios de Color</h2>
+        <!-- Campo de entrada de texto -->
+        <label for="inputText">Ingresa tu texto:</label>
+        <input type="text" id="inputText" placeholder="Escribe aquí..." />
+
+        <!-- Selector de color -->
+        <label for="colorSelect">Selecciona un color para el texto:</label>
+        <select id="colorSelect">
+            <option value="black">Negro</option>
+            <option value="blue">Azul</option>
+            <option value="red">Rojo</option>
+            <option value="green">Verde</option>
+            <option value="purple">Morado</option>
+        </select>
+
+        <!-- Contenedor de respuesta -->
+        <div id="responseContainer" class="response" style="background-color: #f4f4f4;">
+            Respuesta: <span id="dynamicText">Esperando entrada...</span>
+        </div>
+    </div>
+
+    <script>
+        // Obtener referencias a los elementos del DOM
+        const inputText = document.getElementById("inputText");
+        const colorSelect = document.getElementById("colorSelect");
+        const responseContainer = document.getElementById("responseContainer");
+        const dynamicText = document.getElementById("dynamicText");
+
+        // Evento para actualizar el texto dinámicamente a medida que el usuario escribe
+        inputText.addEventListener("input", function() {
+            const textValue = inputText.value.trim();
+            dynamicText.textContent = textValue ? textValue : "Esperando entrada...";
+        });
+
+        // Evento para cambiar el color del texto de la respuesta según el color seleccionado
+        colorSelect.addEventListener("change", function() {
+            const selectedColor = colorSelect.value;
+            dynamicText.style.color = selectedColor; // Cambiar el color del texto
+        });
+
+        // Evento de cambio en el input de texto para actualizar el color al momento de escribir
+        inputText.addEventListener("input", function() {
+            const currentColor = colorSelect.value;
+            dynamicText.style.color = currentColor; // Asegura que el color esté sincronizado
+        });
+    </script>
+</body>
+</html>
