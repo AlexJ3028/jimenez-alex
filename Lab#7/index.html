@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Votación</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .candidate-form {
+            display: flex;
+            justify-content: center;
+            margin: 20px;
+        }
+
+        .candidate-form input, .candidate-form select, .candidate-form button {
+            margin: 0 5px;
+            padding: 10px;
+        }
+
+        #candidate-list {
+            margin: 20px;
+        }
+
+        .candidate {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 300px;
+            margin: 10px auto;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: #f9f9f9;
+        }
+
+        .candidate button {
+            margin-left: 10px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            height: 20px;
+            margin: 5px 0;
+            text-align: center;
+            color: white;
+        }
+
+        #bar-chart {
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sistema de Votación</h1>
+
+    <!-- Formulario para agregar candidatos -->
+    <div class="candidate-form">
+        <input type="text" id="candidate-name" placeholder="Nombre del Candidato">
+        <select id="color-select">
+            <option value="">Seleccionar Color</option>
+            <option value="#ff5733">Rojo</option>
+            <option value="#33ff57">Verde</option>
+            <option value="#3357ff">Azul</option>
+        </select>
+        <button id="add-candidate">Agregar Candidato</button>
+    </div>
+
+    <!-- Lista de candidatos -->
+    <div id="candidate-list">
+        <h2>Lista de Candidatos</h2>
+    </div>
+
+    <!-- Gráfico de barras -->
+    <div id="bar-chart">
+        <h2>Gráfico de Barras</h2>
+    </div>
+
+    <script src="main.js"></script> <!-- Asegúrate de que este archivo esté en el mismo directorio -->
+</body>
+</html>
