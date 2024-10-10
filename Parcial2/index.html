@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador y Ordenador de Números</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap; /* Permitir que los cuadros se distribuyan */
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .number-box {
+            width: 50px;
+            height: 50px;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #007BFF;
+            border-radius: 5px;
+            font-size: 20px;
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Generador y Ordenador de Números</h1>
+
+    <!-- Botones para las funciones -->
+    <button id="generate-btn">Generar Número Aleatorio</button>
+    <button id="sort-asc">Ordenar Ascendente ⬆️</button>
+    <button id="sort-desc">Ordenar Descendente ⬇️</button>
+
+    <!-- Contenedor donde se mostrarán los números generados -->
+    <div class="container" id="number-container">
+        <!-- Los números generados aparecerán aquí en cuadros -->
+    </div>
+
+    <script src="app.js"></script> <!-- Asegúrate de que esta ruta sea correcta -->
+</body>
+</html>
